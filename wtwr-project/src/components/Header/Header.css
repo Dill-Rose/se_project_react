@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../vendor/CabinetGrotesk-Bold.woff") format("woff");
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 32px 0 28px;
+  font-family: Cabinet Grotesk, bold;
+  font-size: 20px;
+}
+
+.header__username {
+  margin: 0;
+}
+
+.header__date-and-location {
+  margin: 0;
+  margin-left: 24px;
+}
+
+.header__button {
+  margin-left: auto;
+  margin-right: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
