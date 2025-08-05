@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../vendor/CabinetGrotesk-Bold.woff") format("woff");
+}
+
+.main-cards {
+  padding-top: 40px;
+}
+
+.main-cards__text {
+  font-family: Cabinet Grotesk, bold;
+  font-size: 20px;
+  margin: 0;
+}
