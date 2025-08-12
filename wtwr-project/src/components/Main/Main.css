@@ -3,12 +3,21 @@
   src: url("../../vendor/CabinetGrotesk-Bold.woff") format("woff");
 }
 
-.main-cards {
+.cards {
   padding-top: 40px;
 }
 
-.main-cards__text {
+.cards__text {
   font-family: Cabinet Grotesk, bold;
   font-size: 20px;
   margin: 0;
+}
+
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 20px;
+  margin: 0;
+  padding: 34px 0 0 0;
 }
