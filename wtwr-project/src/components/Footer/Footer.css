@@ -1,4 +1,10 @@
+@font-face {
+  font-family: "Cabinet Grotesk Medium";
+  src: url("../../vendor/CabinetGrotesk-Medium.woff") format("woff");
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
+  font-family: "Cabinet Grotesk Medium";
 }
