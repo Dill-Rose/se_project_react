@@ -13,6 +13,11 @@
   align-items: center;
   justify-content: center;
   background-color: #0000004d;
+  visibility: hidden;
+}
+
+.modal__opened {
+  visibility: visible;
 }
 
 .modal__title {

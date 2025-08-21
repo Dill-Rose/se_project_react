@@ -7,4 +7,13 @@
   display: flex;
   justify-content: space-between;
   font-family: "Cabinet Grotesk Medium";
+  padding: 85px 0 24px 0;
+}
+
+.footer__name {
+  margin: 0px;
+}
+
+.footer__year {
+  margin: 0px;
 }
