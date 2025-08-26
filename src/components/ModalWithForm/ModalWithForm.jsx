@@ -1,4 +1,4 @@
-import "./modalwithform.css";
+import "./ModalWithForm.css";
 import close from "../../assets/close.png";
 
 function ModalWithForm({

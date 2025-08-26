@@ -1,4 +1,4 @@
-import "./itemmodal.css";
+import "./Itemmodal.css";
 import closeImage from "../../assets/union.png";
 
 function ItemModal({ activeModal, card, handleCloseClick }) {
