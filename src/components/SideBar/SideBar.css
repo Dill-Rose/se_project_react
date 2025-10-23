@@ -1,6 +1,10 @@
-.sidebar {
-}
-
 .sidebar__user-container {
   display: flex;
+  gap: 16px;
+  font-size: 20px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
 }

@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../vendor/CabinetGrotesk-Bold.woff") format("woff");
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  font-family: Cabinet Grotesk, bold;
+}
+
+.profile__sidebar {
+  width: 25%;
+}
+
+.profile__clothing-items {
+  width: 75%;
+}

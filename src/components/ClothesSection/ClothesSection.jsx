@@ -1,14 +1,18 @@
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-function ClothesSection({ clothingItems, handleCardClick }) {
-  console.log("handleCardClick in ClothesSection:", handleCardClick);
-
+function ClothesSection({ clothingItems, handleCardClick, handleAddClick }) {
   return (
     <div className="clothes-section">
       <div className="clothes-section__row">
-        <p>Your Items</p>
-        <button>Add new</button>
+        <p className="clothes-section__row-text">Your Items</p>
+        <button
+          className="clothes-section__row-button"
+          type="button"
+          onClick={handleAddClick}
+        >
+          + Add new
+        </button>
       </div>
       <ul className="clothes-section__items">
         {clothingItems.map((item) => {
@@ -16,7 +20,7 @@ function ClothesSection({ clothingItems, handleCardClick }) {
             <ItemCard
               key={item._id}
               item={item}
-              handleCardClick={handleCardClick}
+              onCardClick={handleCardClick}
             />
           );
         })}

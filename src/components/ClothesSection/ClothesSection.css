@@ -4,6 +4,21 @@
 
 .clothes-section__row {
   display: flex;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.clothes-section__row-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 20px;
+  opacity: 60%;
+}
+
+.clothes-section__row-text {
+  margin: 0;
 }
 
 .clothes-section__items {
@@ -12,5 +27,5 @@
   list-style-type: none;
   gap: 20px;
   margin: 0;
-  padding: 34px 0 0 0;
+  padding: 16px 0 0 0;
 }

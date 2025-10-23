@@ -52,6 +52,7 @@
 
 .modal__footer {
   padding: 20px 0px 32px 32px;
+  position: relative;
 }
 
 .modal__caption {
@@ -67,8 +68,12 @@
 }
 
 .modal__delete {
+  font-family: "Cabinet Grotesk";
   border: none;
   background-color: transparent;
-  color: red;
+  color: #ff4d00;
   cursor: pointer;
+  position: absolute;
+  top: 23px;
+  right: 33px;
 }
