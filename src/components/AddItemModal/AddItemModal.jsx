@@ -11,9 +11,7 @@ const AddItemModal = ({ isOpen, onAddItem, handleCloseClick }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log("Form Submitted");
     onAddItem(values, handleReset);
-    handleReset();
   }
 
   return (

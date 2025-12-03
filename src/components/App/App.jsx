@@ -39,11 +39,10 @@ function App() {
   };
 
   const handleDeleteItem = (itemId) => {
-    console.log("Trying to delete:", itemId);
     deleteItem(itemId)
       .then(() => {
-        setClothingItems(
-          clothingItems.filter((item) => {
+        setClothingItems((prev) =>
+          prev.filter((item) => {
             return item._id !== itemId;
           })
         );
@@ -52,7 +51,7 @@ function App() {
       .catch(console.error);
   };
 
-  const onAddItem = (inputValues) => {
+  const onAddItem = (inputValues, handleReset) => {
     const newCardData = {
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
@@ -60,7 +59,8 @@ function App() {
     };
     addItem(newCardData)
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems((prev) => [data, ...prev]);
+        handleReset();
         closeModal();
       })
       .catch(console.error);
