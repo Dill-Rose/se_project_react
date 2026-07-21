@@ -3,12 +3,22 @@ import headerLogo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentuserContext";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  openRegistrationModal,
+  openLoginModal,
+  handleLogout,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+
+  const { isLoggedIn } = useContext(CurrentUserContext);
 
   return (
     <header className="header">
@@ -20,15 +30,41 @@ function Header({ handleAddClick, weatherData }) {
       </p>
 
       <ToggleSwitch />
-      <button className="header__button" type="button" onClick={handleAddClick}>
-        + Add Clothes
-      </button>
-      <NavLink className="header__nav-link" to="/profile">
-        <div className="header__user-container">
-          <p className="header__username">Dillon Rose</p>
-          <img src={avatar} alt="User avatar" className="header__avatar" />
-        </div>
-      </NavLink>
+      {isLoggedIn ? (
+        <button
+          className="header__button"
+          type="button"
+          onClick={handleAddClick}
+        >
+          + Add Clothes
+        </button>
+      ) : null}
+      {isLoggedIn ? (
+        <NavLink className="header__nav-link" to="/profile">
+          <div className="header__user-container">
+            <p className="header__username">Dillon Rose</p>
+            <img src={avatar} alt="User avatar" className="header__avatar" />
+          </div>
+        </NavLink>
+      ) : null}
+      {!isLoggedIn ? (
+        <button
+          className="header__button"
+          type="button"
+          onClick={openRegistrationModal}
+        >
+          Sign Up
+        </button>
+      ) : null}
+      {!isLoggedIn ? (
+        <button
+          className="header__button"
+          type="button"
+          onClick={openLoginModal}
+        >
+          Log In
+        </button>
+      ) : null}
     </header>
   );
 }

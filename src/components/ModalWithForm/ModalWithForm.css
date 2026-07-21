@@ -106,3 +106,9 @@
 .modal__label_type_radio:last-of-type {
   padding: 0;
 }
+
+.modal__error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
