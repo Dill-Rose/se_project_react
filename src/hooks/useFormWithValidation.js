@@ -14,6 +14,17 @@ export function useFormWithValidation(defaultValues) {
       else if (!isValidUrl(value)) error = "Please enter a valid URL";
     } else if (name === "weather") {
       if (!value) error = "Please select a weather type";
+    } else if (name === "email") {
+      if (!value.trim()) error = "Email is required";
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+        error = "Please enter a valid email address";
+    } else if (name === "password") {
+      if (!value.trim()) error = "Password is required";
+      else if (value.length < 6)
+        error = "Password must be at least 6 characters long";
+    } else if (name === "avatar") {
+      if (!value.trim()) error = "Avatar URL is required";
+      else if (!isValidUrl(value)) error = "Please enter a valid URL";
     }
     return error;
   }

@@ -13,7 +13,9 @@ const RegisterModal = ({ isOpen, handleRegistration, handleCloseClick }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    console.log("isValid", isValid);
     if (isValid) {
+      console.log("calling handleRegistration with values:", values);
       handleRegistration(values, handleReset);
     }
   }
@@ -21,7 +23,7 @@ const RegisterModal = ({ isOpen, handleRegistration, handleCloseClick }) => {
   return (
     <ModalWithForm
       title="Sign Up"
-      buttonText="Next"
+      buttonText="Sign Up"
       handleCloseClick={handleCloseClick}
       onSubmit={handleSubmit}
       isOpen={isOpen}

@@ -1,6 +1,8 @@
+const BASE_URL = "http://localhost:3001";
+
 // /signup
 export const register = (name, avatar, email, password) => {
-  return fetch("/signup", {
+  return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -16,7 +18,7 @@ export const register = (name, avatar, email, password) => {
 
 // /signin
 export const signin = (email, password) => {
-  return fetch("/signin", {
+  return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,11 +34,16 @@ export const signin = (email, password) => {
 
 // /users/me
 export const getUser = (token) => {
-  return fetch("/users/me", {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
   });
 };

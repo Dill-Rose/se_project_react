@@ -16,6 +16,7 @@ import { deleteItem } from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentuserContext";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import { getUser, register, signin } from "../../utils/auth";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -35,27 +36,38 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleRegistration = (
-    { name, avatar, email, password, confirmPassword },
+    { name, avatar, email, password },
     handleReset,
   ) => {
-    if (password === confirmPassword) {
-      auth
-        .register(name, avatar, email, password)
-        .then(() => auth.signin(email, password))
+    register(name, avatar, email, password)
+      .then(() => signin(email, password))
+      .then((data) => {
+        console.log("Login successful:", data);
+        localStorage.setItem("jwt", data.token);
+        console.log("Registration successful:", data);
+        handleReset();
+        closeModal();
+        setCurrentUser(data);
+        setIsLoggedIn(true);
+      })
+      .catch((error) => {
+        console.error("Registration failed:", error);
+      });
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      getUser(token)
         .then((data) => {
-          console.log("Login successful:", data);
-          localStorage.setItem("jwt", data.token);
-          console.log("Registration successful:", data);
-          handleReset();
-          closeModal();
           setCurrentUser(data);
           setIsLoggedIn(true);
         })
         .catch((error) => {
-          console.error("Registration failed:", error);
+          console.error("Error during token validation:", error);
         });
     }
-  };
+  }, []);
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -192,6 +204,7 @@ function App() {
           <RegisterModal
             isOpen={isRegistrationModalOpen}
             handleCloseClick={closeModal}
+            handleRegistration={handleRegistration}
           />
         </CurrentTemperatureUnitContext.Provider>
       </div>

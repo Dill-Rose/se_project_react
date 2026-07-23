@@ -19,7 +19,6 @@ function Header({
   });
 
   const { isLoggedIn } = useContext(CurrentUserContext);
-
   return (
     <header className="header">
       <NavLink to="/">
