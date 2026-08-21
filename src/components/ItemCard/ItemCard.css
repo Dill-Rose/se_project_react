@@ -26,6 +26,30 @@
   padding: 2px 12px 2px 12px;
 }
 
+.card__like-button {
+  background: transparent url(../../assets/like-unactive.svg) no-repeat center;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.card__like-button_active {
+  background: transparent url(../../assets/like-active.svg) no-repeat center;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .card__image {
   width: 100%;
 }

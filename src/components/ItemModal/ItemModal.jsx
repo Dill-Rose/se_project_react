@@ -1,7 +1,16 @@
 import "./ItemModal.css";
 import closeImage from "../../assets/union.png";
+import { useContext } from "react";
+import  CurrentUserContext  from "../../contexts/CurrentUserContext";
 
 function ItemModal({ card, handleCloseClick, isOpen, handleDeleteItem }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
+  const isOwn = card.owner === currentUser._id;
+
+  // Creating a variable which you'll then set in `className` for the delete button
+  const itemDeleteButtonClassName = `modal__delete-button ${isOwn ? "" : "modal__delete-button_hidden"}`;
+
   return (
     <div className={`modal ${isOpen ? "modal__opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
@@ -20,7 +29,7 @@ function ItemModal({ card, handleCloseClick, isOpen, handleDeleteItem }) {
             onClick={() => {
               handleDeleteItem(card._id);
             }}
-            className="modal__delete"
+            className={itemDeleteButtonClassName}
           >
             Delete Item
           </button>

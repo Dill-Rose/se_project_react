@@ -67,7 +67,7 @@
   margin: 12px 0 0;
 }
 
-.modal__delete {
+.modal__delete-button {
   font-family: "Cabinet Grotesk";
   border: none;
   background-color: transparent;
@@ -76,4 +76,8 @@
   position: absolute;
   top: 23px;
   right: 33px;
+}
+
+.modal__delete-button_hidden {
+  display: none;
 }

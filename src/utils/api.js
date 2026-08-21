@@ -2,6 +2,7 @@ const baseUrl = "http://localhost:3001";
 
 const headers = {
   "Content-Type": "application/json",
+  authorization: `Bearer ${localStorage.getItem("jwt")}`,
 };
 
 export const handleServerResponse = (res) => {
@@ -26,6 +27,20 @@ export const addItem = ({ name, imageUrl, weather }) => {
 
 export const deleteItem = (itemId) => {
   return fetch(`${baseUrl}/items/${itemId}`, {
+    method: "DELETE",
+    headers,
+  }).then(handleServerResponse);
+};
+
+export const addCardLike = (itemId) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "PUT",
+    headers,
+  }).then(handleServerResponse);
+};
+
+export const removeCardLike = (itemId) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers,
   }).then(handleServerResponse);
