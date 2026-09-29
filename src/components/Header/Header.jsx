@@ -4,7 +4,7 @@ import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import CurrentUserContext from "../../contexts/CurrentuserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Header({
   handleAddClick,
@@ -18,7 +18,7 @@ function Header({
     day: "numeric",
   });
 
-  const { isLoggedIn } = useContext(CurrentUserContext);
+  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
   return (
     <header className="header">
       <NavLink to="/">
@@ -41,8 +41,12 @@ function Header({
       {isLoggedIn ? (
         <NavLink className="header__nav-link" to="/profile">
           <div className="header__user-container">
-            <p className="header__username">Dillon Rose</p>
-            <img src={avatar} alt="User avatar" className="header__avatar" />
+            <p className="header__username">{currentUser.name}</p>
+            <img
+              src={currentUser.avatar}
+              alt="User avatar"
+              className="header__avatar"
+            />
           </div>
         </NavLink>
       ) : null}

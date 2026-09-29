@@ -19,7 +19,7 @@ import {
   removeCardLike,
 } from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute";
-import CurrentUserContext from "../../contexts/CurrentuserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { getUser, register, signin } from "../../utils/auth";
@@ -83,8 +83,8 @@ function App() {
   };
 
   const handleEditProfile = (values, handleReset) => {
-    // Handle profile edit logic here
     console.log("Profile updated:", values);
+    setCurrentUser({ ...currentUser, ...values });
     handleReset();
     closeModal();
   };
